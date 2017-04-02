@@ -40,6 +40,7 @@
 		1F2C64CE1E8A418D004B7161 /* PeapotRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeapotRefreshBackFooter.h; sourceTree = "<group>"; };
 		1F2C64CF1E8A418D004B7161 /* PeapotRefreshBackFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeapotRefreshBackFooter.m; sourceTree = "<group>"; };
 		1F2C64D11E8A4BDD004B7161 /* NoMoreData.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoMoreData.xib; sourceTree = "<group>"; };
+		1F7536C91E9131DE00E17272 /* FJRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJRefresh.h; sourceTree = "<group>"; };
 		45688BEB5E8C8D0C6D23CB57 /* Pods_FJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8EAEF2FFD3D6F8C1B7E32BD /* Pods-FJRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FJRefresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-FJRefresh/Pods-FJRefresh.release.xcconfig"; sourceTree = "<group>"; };
 		D9879A43F6DD9DD7075CA988 /* Pods-FJRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FJRefresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FJRefresh/Pods-FJRefresh.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				1F2C64BD1E8A3579004B7161 /* WandoujiaStyle */,
+				1F7536C91E9131DE00E17272 /* FJRefresh.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
