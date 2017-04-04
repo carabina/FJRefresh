@@ -51,7 +51,7 @@ Feel free to open an issue or pull request, if you need help or there is a bug.
 
 # License
 
-FJHttpClient is available under the MIT license. See the LICENSE file for more info.
+FJRefresh is available under the MIT license. See the LICENSE file for more info.
 
 The MIT License (MIT)
 
