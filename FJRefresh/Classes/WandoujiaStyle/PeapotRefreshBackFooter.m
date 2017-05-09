@@ -205,7 +205,7 @@
 
 // 设置HintView的Xib名称
 + (void)setXibName:(NSString *)xibName {
-    objc_setAssociatedObject(self, @"xibName", xibName, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, @"xibName", xibName, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 + (NSString *)getXibName {
@@ -219,7 +219,7 @@
 
 // 设置HintView的高度
 + (void)setXibHeight:(CGFloat)height {
-    objc_setAssociatedObject(self, @"xibHeight", [NSNumber numberWithFloat:height], OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @"xibHeight", [NSNumber numberWithFloat:height], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 + (CGFloat)getXibHeight {
