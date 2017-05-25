@@ -14,6 +14,8 @@
 // 构造方法
 + (instancetype)footerWithHintViewXib:(NSString*)xibName hintViewHeight:(CGFloat)height refreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock;
 
++ (instancetype)footerWithHintViewXib:(NSString*)xibName hintViewHeight:(CGFloat)height refreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock alwaysShowHintView:(BOOL)alwaysShowHintView;
+
 // 重置状态
 - (void)resetFooterState;
 

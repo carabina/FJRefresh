@@ -35,6 +35,14 @@
     return footer;
 }
 
++ (instancetype)footerWithHintViewXib:(NSString*)xibName hintViewHeight:(CGFloat)height refreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock alwaysShowHintView:(BOOL)alwaysShowHintView {
+    [self setXibName:xibName];
+    [self setXibHeight:height];
+    [self setAlwayShowHintView:alwaysShowHintView];
+    PeapotRefreshBackFooter *footer  = [super footerWithRefreshingBlock:refreshingBlock];
+    return footer;
+}
+
 #pragma mark 在这里做一些初始化配置（比如添加子控件）
 - (void)prepare
 {
@@ -109,6 +117,12 @@
     self.hintView.frame = self.bounds;
     self.roundLayer.position = CGPointMake(self.mj_w/2.0, self.mj_h/2.0);
     self.arcLayer.position = CGPointMake(Round_W/2.0, Round_H/2.0);
+    
+    if ([[self class] getAlwayShowHintView] == NO) {
+        if (self.frame.origin.y < self.superview.frame.size.height - [[self class] getXibHeight]) {
+            self.hintView.hidden = YES;
+        }
+    }
 }
 
 #pragma mark 监听scrollView的contentOffset改变
@@ -149,7 +163,15 @@
         case MJRefreshStateNoMoreData:
             [self stopAnimating];
             self.roundLayer.hidden = YES;
-            self.hintView.hidden = NO;
+            if ([[self class] getAlwayShowHintView]) {
+                self.hintView.hidden = NO;
+            }else{
+                if (self.frame.origin.y >= self.superview.frame.size.height - [[self class] getXibHeight]) {
+                    self.hintView.hidden = NO;
+                }else{
+                    self.hintView.hidden = YES;
+                }
+            }
             break;
         default:
             break;
@@ -229,6 +251,15 @@
         return Default_FOOTER_HEIGHT;
     }
     return height;
+}
+
+// 设置是否在没滑到一屏幕的时候显示HintView
++ (void)setAlwayShowHintView:(BOOL)alwayShowHintView {
+    objc_setAssociatedObject(self, @"alwayShowHintView", [NSNumber numberWithBool:alwayShowHintView], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++ (BOOL)getAlwayShowHintView {
+    return [objc_getAssociatedObject(self, @"alwayShowHintView") boolValue];
 }
 
 @end
