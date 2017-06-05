@@ -10,7 +10,7 @@
 #import <MJRefresh/MJRefresh.h>
 
 #import "PeapotRefreshHeader.h"
-//#import "PeapotRefreshAutoFooter.h"
+#import "PeapotRefreshAutoFooter.h"
 #import "PeapotRefreshBackFooter.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -49,7 +49,7 @@
         
     }];
 
-    self.tableView.mj_footer = [PeapotRefreshBackFooter footerWithHintViewXib:@"NoMoreData"
+    self.tableView.mj_footer = [PeapotRefreshAutoFooter footerWithHintViewXib:@"NoMoreData"
                                                                hintViewHeight:100.0
                                                               refreshingBlock:^{
                                                                   [weakSelf loadData:weakSelf.page + 1 onLoadedData:^{
@@ -62,6 +62,7 @@
                                                                       }
                                                                   }];
                                                               }];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (NSMutableArray *)dataSource {
@@ -99,7 +100,7 @@
 
 - (void)addData{
     int index = (int)[self.dataSource count];
-    for (int i = index ; i < index + 10; i++) {
+    for (int i = index ; i < index + 12; i++) {
         [self.dataSource addObject:[NSNumber numberWithInt:i]];
     }
 }
